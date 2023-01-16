@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>AppifySheets.Module</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!--      <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.Common.XAF.Module.EfCore\AppifySheets.Common.XAF.Module.EfCore.csproj" />-->
+        <!--      <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.EfCore.Infrastructure\AppifySheets.EfCore.Infrastructure.csproj" />-->
+        <!--      <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.EfCoreIntegration.ModuleBase\AppifySheets.EfCoreIntegration.ModuleBase.csproj" />-->
+        <!--      <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.SuperGeneral.Stuff\AppifySheets.SuperGeneral.Stuff.csproj" />-->
+        <!--      <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.Users.Infrastructure\AppifySheets.Users.Infrastructure.csproj" />-->
+        <ProjectReference Include="..\Domain\Domain.csproj" />
+        <ProjectReference Include="..\EfCore.Infrastructure\EfCore.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Fody" PrivateAssets="All" />
+        <PackageReference Include="PropertyChanged.Fody" PrivateAssets="All" />
+
+        <PackageReference Include="AppifySheets.Common.XAF.Module.EfCore" />
+        <PackageReference Include="AppifySheets.EfCore.Infrastructure" />
+        <PackageReference Include="AppifySheets.EfCoreIntegration.ModuleBase" />
+        <PackageReference Include="AppifySheets.SuperGeneral.Stuff" />
+        <PackageReference Include="AppifySheets.Users.Infrastructure" />
+
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+      <Folder Include="Proxies" />
+    </ItemGroup>
+
+</Project>

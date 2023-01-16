@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>AppifySheets.Barbarosa.Domain</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+        <!--<LangVersion>11</LangVersion>-->
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="HtmlAgilityPack" />
+        <PackageReference Include="CSharpFunctionalExtensions" />
+        <PackageReference Include="AppifySheets.GeneralModules" />
+        <PackageReference Include="AppifySheets.Domain.Common" />
+    </ItemGroup>
+    <ItemGroup>
+        <!--        <ProjectReference Include="..\..\appifysheets.common\general-modules\doso-basetypes\DoSo.BaseTypes.SuperGeneral.Stuff\DoSo.BaseTypes.SuperGeneral.Stuff.csproj"/>-->
+        <!--        <ProjectReference Include="..\..\appifysheets.common\general-modules\DoSo.EnterpriseDomain.Common\DoSo.EnterpriseDomain.Common.csproj"/>-->
+        <!--        <ProjectReference Include="..\..\appifysheets.common\modules\AppifySheets.Domain.Common\AppifySheets.Domain.Common.csproj" />-->
+    </ItemGroup>
+</Project>
