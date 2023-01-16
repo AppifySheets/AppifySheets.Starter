@@ -1,0 +1,138 @@
+<Project>
+    <!-- 
+        Centrally managed repository nuget package versioning
+    -->
+    <ItemGroup>
+        <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0"/>
+        <PackageVersion Include="AutoMapper.Extensions.ExpressionMapping" Version="4.1.2"/>
+        <PackageVersion Include="Castle.Core" Version="[4.4.1, 5.0)"/>
+        <PackageVersion Include="DevExpress.Data" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.FileAttachment.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Security.Xpo" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Security" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Validation" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.ViewVariantsModule" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Win" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Persistent.BaseImpl.Xpo" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Persistent.BaseImpl" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Dashboard.Core" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.DataAccess" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Xpo" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.AuditTrail.EFCore" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Dashboards" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.EFCore" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.AspNetCore" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Objects" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Office" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Persistent.Base" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.Persistent.BaseImpl.EFCore" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Dashboards.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Office.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Validation.Blazor" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.WebApi" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Notifications.Win" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2.Win" Version="22.2.3"/>
+        <PackageVersion Include="DevExpress.ExpressApp.Validation.Win" Version="22.2.3"/>
+        <!--        <PackageVersion Include="DevExpress.EntityFrameworkCore.Security" Version="22.2.3"/>-->
+        <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.2.0"/>
+        <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.2.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="6.0.1"/>
+
+        <PackageVersion Include="Fody" Version="6.6.3"/>
+        <PackageVersion Include="PropertyChanged.Fody" Version="3.4.1"/>
+        <PackageVersion Include="EmptyConstructor.Fody" Version="3.0.3"/>
+        <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1"/>
+        <PackageVersion Include="MediatR" Version="10.0.1"/>
+        <PackageVersion Include="MediatR.Contracts" Version="1.0.1"/>
+
+        <PackageVersion Include="Microsoft.Azure.SignalR" Version="1.4.0"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="6.0.12"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.12"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.12"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.12"/>
+
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.12"/>
+        <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.12"/>
+        <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.8"/>
+
+        <PackageVersion Include="Newtonsoft.Json" Version="13.0.2"/>
+        <PackageVersion Include="Npgsql" Version="6.0.8"/>
+        <PackageVersion Include="NullGuard.Fody" Version="3.0.0"/>
+        <PackageVersion Include="Sentry.AspNetCore" Version="3.8.3"/>
+        <PackageVersion Include="Sentry.Serilogcls" Version="3.8.3"/>
+        
+        <PackageVersion Include="Serilog.AspNetCore" Version="6.0.1"/>
+        <PackageVersion Include="Serilog.Sinks.Console" Version="4.0.1"/>
+        <PackageVersion Include="Serilog.Sinks.Seq" Version="5.2.2"/>
+        <PackageVersion Include="Serilog.Sinks.File" Version="5.0.0"/>
+        <PackageVersion Include="Serilog" Version="2.12.0"/>
+        
+        <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3"/>
+        <PackageVersion Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.2.3"/>
+        <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
+        <PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+        <PackageVersion Include="System.Drawing.Common" Version="5.0.3"/>
+        <PackageVersion Include="System.Reactive" Version="5.0.0"/>
+        <PackageVersion Include="CSharpFunctionalExtensions" Version="2.31.0"/>
+        <PackageVersion Include="StrongNamer" Version="0.2.5"/>
+        <PackageVersion Include="Google.Apis.Auth.AspNetCore3" Version="1.55.0"/>
+        <PackageVersion Include="Google.Apis.Gmail.v1" Version="1.52.0.2356"/>
+        <PackageVersion Include="HtmlAgilityPack" Version="1.11.30"/>
+        <PackageVersion Include="MailKit" Version="2.15.0"/>
+        <PackageVersion Include="EPPlus" Version="5.8.3"/>
+        <PackageVersion Include="AgileObjects.ReadableExpressions" Version="4.0.0"/>
+        <PackageVersion Include="Shouldly" Version="4.0.3"/>
+        <PackageVersion Include="Ardalis.Specification" Version="6.0.1"/>
+
+        <PackageVersion Include="Microsoft.Extensions.Configuration" Version="6.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Configuration.CommandLine" Version="6.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="6.0.0"/>
+        <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0"/>
+
+<!--        <PackageVersion Include="Rollbar.NetCore.AspNet" Version="5.0.3-beta"/>-->
+<!--        <PackageVersion Include="Rollbar" Version="5.0.3-beta"/>-->
+<!--        <PackageVersion Include="Rollbar.PlugIns.Serilog" Version="5.0.3-beta"/>-->
+
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.0.0"/>
+        <PackageVersion Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57"/>
+        <PackageVersion Include="SpecFlow.xUnit" Version="3.9.40"/>
+        <PackageVersion Include="xunit" Version="2.4.1"/>
+        <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.3"/>
+        <PackageVersion Include="FluentAssertions" Version="6.2.0"/>
+        <PackageVersion Include="DryIoc" Version="4.8.6"/>
+        <PackageVersion Include="IDisposableAnalyzers" Version="4.0.1"/>
+        <PackageVersion Include="Microsoft.Data.SqlClient" Version="4.1.0"/>
+        <PackageVersion Include="CliWrap" Version="3.5.0"/>
+        <PackageVersion Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="6.0.8"/>
+        <PackageVersion Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="6.0.8"/>
+        <PackageVersion Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.9"/>
+        <PackageVersion Include="MassTransit.AspNetCore" Version="8.0.6"/>
+        <PackageVersion Include="MassTransit.RabbitMQ" Version="8.0.6"/>
+        <PackageVersion Include="MassTransit" Version="8.0.6"/>
+        <PackageVersion Include="OneOf" Version="3.0.216"/>
+
+        <PackageVersion Include="ConsoleTableExt" Version="3.2.0"/>
+
+        <PackageVersion Include="ShopifySharp" Version="5.19.0"/>
+
+        <PackageVersion Include="AppifySheets.GeneralModules" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.Domain.Common" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.Users.Infrastructure" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.EfCore.Infrastructure" Version="3.3.1"/>
+        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module.EfCore" Version="3.3.1"/>
+        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.EfCore.ApplicationBase" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.Common.XAF.Module.EfCore" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="3.3.1"/>
+        <PackageVersion Include="AppifySheets.SuperGeneral.Stuff" Version="3.3.1"/>
+
+    </ItemGroup>
+</Project>

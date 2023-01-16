@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <OutputType>WinExe</OutputType>
+<!--        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>-->
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <RootNamespace>AppifySheets.Desktop.Launcher</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>AnyCPU</Platforms>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" />
+        <PackageReference Include="DevExpress.ExpressApp.AuditTrail.EFCore" />
+        <PackageReference Include="DevExpress.ExpressApp.Notifications.Win" />
+        <PackageReference Include="DevExpress.ExpressApp.Objects" />
+        <PackageReference Include="DevExpress.ExpressApp.ReportsV2.Win" />
+        <PackageReference Include="DevExpress.ExpressApp.Validation.Win" />
+        <PackageReference Include="DevExpress.ExpressApp.ViewVariantsModule" />
+        <PackageReference Include="DevExpress.Persistent.BaseImpl.EFCore" />
+        <PackageReference Include="System.Drawing.Common" />
+        <PackageReference Include="Castle.Core" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" />
+        <PackageReference Include="System.ComponentModel.Annotations" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="AppifySheets.DatabaseModel.EfCore" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\L3.XAF.Common.Module\L3.XAF.Common.Module.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+   
+</Project>
