@@ -6,4 +6,6 @@ choco install visualstudio2022community
 choco install docker-compose
 choco install vscode
 
+mkdir C:\root\.nuget\packages
+
 pause
