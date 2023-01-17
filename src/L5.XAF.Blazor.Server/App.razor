@@ -1,0 +1,32 @@
+﻿@using System.Diagnostics
+@inject IJSRuntime JsRuntime
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<Router AppAssembly="@typeof(Program).Assembly" AdditionalAssemblies="new[] { typeof(DevExpress.ExpressApp.Blazor.BlazorApplication).Assembly }">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" />
+    </Found>
+    <NotFound>
+        <LayoutView>
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+@code{
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+            if (user.Identity is {IsAuthenticated: true } && !Debugger.IsAttached)
+            {
+                await JsRuntime.InvokeVoidAsync("hideNavBarOnLoad");
+            }
+            
+            // await _jsRuntime.InvokeVoidAsync("addTooltips");
+
+        }
+    }
+}
