@@ -4,7 +4,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.Persistent.BaseImpl.EF;
 using L1.Domain.Models;
-using Updater = AppifySheets.Module.Updater;
+using Updater = L3.XAF.Common.Module.Updater;
 
 namespace L3.XAF.Common.Module;
 
