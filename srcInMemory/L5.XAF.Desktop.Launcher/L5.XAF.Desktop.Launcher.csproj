@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AppifySheets.Desktop.XAF.LauncherBase" Version="*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\L3.XAF.Common.Module\L3.XAF.Common.Module.csproj" />
+    </ItemGroup>
+   
+</Project>
