@@ -1,119 +1,39 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using DevExpress.ExpressApp.Blazor.Services;
+using System.Collections.Generic;
+using AppifySheets.Blazor.Module;
+using AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres;
+using AppifySheets.Common.XAF.Module.Extra;
+using AppifySheets.Domain.Common;
+using AppifySheets.EfCore.ApplicationBase;
+using L1.Domain.BaseModels;
+using L2.EfCore.Infrastructure;
+using L3.XAF.Common.Module;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Npgsql.Logging;
-using Serilog;
-using Serilog.Events;
 
 namespace L5.XAF.Blazor.Server;
 
-class NpgsqlLoggingProvider : INpgsqlLoggingProvider
+public class Program : BlazorProgramBase<Startup>
 {
-    public NpgsqlLogger CreateLogger(string name) => new NLogLogger();
+    public static int Main(string[] args) => new Program().MainBase(args);
 }
 
-class NLogLogger : NpgsqlLogger
+public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<ApplicationDbContext>
 {
-    public override bool IsEnabled(NpgsqlLogLevel level) => true;
-
-    public override void Log(NpgsqlLogLevel level, int connectorId, string msg, Exception exception = null)
-    {
-        // if (msg.Contains("Context 'BarbarosaContext2' started tracking")) return;
-        // Serilog.Log.Write(ToNLogLogLevel(level), exception, "Npgsql {Message}", msg);
-    }
-
-    static LogEventLevel ToNLogLogLevel(NpgsqlLogLevel level)
-    {
-        return level switch
-        {
-            NpgsqlLogLevel.Trace => LogEventLevel.Information,
-            NpgsqlLogLevel.Debug => LogEventLevel.Information,
-            NpgsqlLogLevel.Info => LogEventLevel.Information,
-            NpgsqlLogLevel.Warn => LogEventLevel.Warning,
-            NpgsqlLogLevel.Error => LogEventLevel.Error,
-            NpgsqlLogLevel.Fatal => LogEventLevel.Fatal,
-            _ => throw new ArgumentOutOfRangeException("level")
-        };
-    }
+    protected override string ApplicationNameCore => "AppifySheets Template";
 }
 
-public class Program
+public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
-    static bool ContainsArgument(string[] args, string argument) =>
-        (args ?? Enumerable.Empty<string>()).Any(arg => string.Equals(arg.TrimStart('/').TrimStart('-'), argument, StringComparison.CurrentCultureIgnoreCase));
-
-    public static int Main(string[] args)
+    public Startup(IConfiguration configuration) : base(configuration)
     {
-        AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
-        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-        
-        // if (Debugger.IsAttached)
-        //     NpgsqlLogManager.Provider = new NpgsqlLoggingProvider();
-        static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)
-            => Log.Error(e.ExceptionObject as Exception ?? new Exception(e.ExceptionObject.ToString()), nameof(CurrentDomainOnUnhandledException));
-
-        AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException; // AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
-        // ProxiesType.AssemblyProxyTypeSet(typeof(SheetsV1));
-
-        DevExpress.ExpressApp.Blazor.BlazorApplication.EnableDefaultSelectionDependencyType = false;
-
-        if (ContainsArgument(args, "help") || ContainsArgument(args, "h"))
-        {
-            Console.WriteLine(@"Updates the database when its version does not match the application's version.");
-            Console.WriteLine();
-            Console.WriteLine($@"    {Assembly.GetExecutingAssembly().GetName().Name}.exe --updateDatabase [--forceUpdate --silent]");
-            Console.WriteLine();
-            Console.WriteLine(@"--forceUpdate - Marks that the database must be updated whether its version matches the application's version or not.");
-            Console.WriteLine(@"--silent - Marks that database update proceeds automatically and does not require any interaction with the user.");
-            Console.WriteLine();
-            Console.WriteLine($@"Exit codes: 0 - {DBUpdater.StatusUpdateCompleted}");
-            Console.WriteLine($@"            1 - {DBUpdater.StatusUpdateError}");
-            Console.WriteLine($@"            2 - {DBUpdater.StatusUpdateNotNeeded}");
-        }
-        else
-        {
-            DevExpress.ExpressApp.FrameworkSettings.DefaultSettingsCompatibilityMode = DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.Latest;
-            var host = CreateHostBuilder(args).Build();
-
-            if (ContainsArgument(args, "updateDatabase"))
-            {
-                using var serviceScope = host.Services.CreateScope();
-
-                var updateResult = serviceScope.ServiceProvider.GetRequiredService<IDBUpdater>().Update(ContainsArgument(args, "forceUpdate"), ContainsArgument(args, "silent"));
-
-                if (updateResult != 0 && Debugger.IsAttached)
-                {
-                    Debugger.Break();
-                }
-            }
-
-            host.Run();
-        }
-
-        return 0;
     }
 
-    
-    static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .UseSerilog((context, lc) =>
-                lc
-                    .Enrich.WithProperty("ApplicationVersion", AssemblyInfo_GeneralModules.ApplicationVersion)
-                    .Enrich.WithProperty("Application", "AppifySheetsBlazor" + (Debugger.IsAttached ? "-Debug-" : ""))
-                    .Enrich.WithProperty("MachineName", Environment.MachineName)
-                    .MinimumLevel.Information()
-                    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                    // .MinimumLevel.Override("DevExpress", LogEventLevel.Warning)
-                    .WriteTo.Console()
-#if DEBUG
-#else
-         .WriteTo.Seq("http://seq:5341")
-#endif
-                )
-            .ConfigureWebHostDefaults(webBuilder => webBuilder.UseStartup<Startup>());
+    protected override IEnumerable<Type> ModulesToAdd => Types.From<AppifySheetsModule, BlazorModule>();
+    protected override string ConnectionString => ApplicationDbContext.ProductionConnectionString;
+    protected override Unit ConfigureCore(IApplicationBuilder app, IWebHostEnvironment env) => Unit.Default;
+    protected override Unit ConfigureServicesCore(IServiceCollection services) => Unit.Default;
 }
+

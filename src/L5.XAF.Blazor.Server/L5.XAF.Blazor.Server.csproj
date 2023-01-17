@@ -7,17 +7,17 @@
         <ServerGarbageCollection>false</ServerGarbageCollection>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+<!--    <ItemGroup>-->
+<!--        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">-->
+<!--            <PrivateAssets>all</PrivateAssets>-->
+<!--            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+<!--        </PackageReference>-->
 
-        <PackageReference Include="Npgsql" />
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />
-    </ItemGroup>
+<!--        <PackageReference Include="Npgsql" />-->
+<!--        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />-->
+<!--    </ItemGroup>-->
     <ItemGroup>
-        <PackageReference Include="AppifySheets.EfCore.ApplicationBase" />
+        <PackageReference Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\L4.XAF.Blazor.Module\L4.XAF.Blazor.Module.csproj" />

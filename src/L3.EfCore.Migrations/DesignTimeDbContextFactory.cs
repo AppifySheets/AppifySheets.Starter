@@ -1,9 +1,9 @@
 ﻿using AppifySheets.EfCore.Infrastructure.DbContext;
-using EfCore.Infrastructure;
 using L1.Domain.BaseModels;
+using L2.EfCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppifySheets.EFCore.Migrations;
+namespace L3.EfCore.Migrations;
 
 public class DesignTimeDbContextFactory : DesignTimeDbContextFactoryBase<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {

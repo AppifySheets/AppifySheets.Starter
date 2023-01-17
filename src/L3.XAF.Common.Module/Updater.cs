@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.Updating;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EFCore.AuditTrail;
-using EfCore.Infrastructure;
+using L2.EfCore.Infrastructure;
 
 namespace AppifySheets.Module;
 
