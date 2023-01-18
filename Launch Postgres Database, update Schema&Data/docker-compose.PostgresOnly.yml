@@ -29,7 +29,7 @@ services:
     image: postgres:latest
     restart: always
     ports:
-      - 5432:5432
+      - 15432:5432
     environment:
       - POSTGRES_USER=_appifysheets_user_
       - POSTGRES_PASSWORD=ryI^^Tn7%rl39X2TbpI6l

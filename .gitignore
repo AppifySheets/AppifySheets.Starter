@@ -30,3 +30,4 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+/Launch Postgres Database, update Schema&Data/postgres-data

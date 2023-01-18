@@ -47,6 +47,7 @@
 
         <PackageVersion Include="Fody" Version="6.6.3"/>
         <PackageVersion Include="PropertyChanged.Fody" Version="3.4.1"/>
+        <PackageVersion Include="Virtuosity.Fody" Version="3.1.1"/>
         <PackageVersion Include="EmptyConstructor.Fody" Version="3.0.3"/>
         <PackageVersion Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1"/>
         <PackageVersion Include="MediatR" Version="10.0.1"/>
