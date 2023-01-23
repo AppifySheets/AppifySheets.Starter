@@ -12,7 +12,7 @@ public class ApplicationDbContext : AppifySheetsEfCoreDbContextBasePostgres<Appl
 {
     // readonly IMediator _mediator;
 
-    public const string ProductionConnectionString = "Server=localhost;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
+    public const string ProductionConnectionString = "Server=144.24.160.225;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
     public const string DevelopmentConnectionString = "Server=postgres;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
     
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime, HttpClient httpClient) : base(options, dispatcher, dateTime)
@@ -20,7 +20,7 @@ public class ApplicationDbContext : AppifySheetsEfCoreDbContextBasePostgres<Appl
     }
 
     public DbSet<City> Cities => Set<City>();
-    public DbSet<Person> Persons => Set<Person>();
+    public DbSet<Patient> Patients => Set<Patient>();
 
     protected override Unit OnConfiguringCore(DbContextOptionsBuilder optionsBuilder) => Unit.Value;
 

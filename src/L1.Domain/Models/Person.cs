@@ -1,29 +1,16 @@
-﻿using CSharpFunctionalExtensions;
-using L1.Domain.BaseModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace L1.Domain.Models
+namespace L1.Domain.Models;
+
+public class Patient : AggregateRoot
 {
-    public class Person : AggregateRoot
-    {
-        protected override Result ExpireCore(DateTime expiredOn, BasicUser expiredBy)
-        {
-            throw new NotImplementedException();
-        }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public DateTime Birthdate { get; set; }
+    public string IdNumber { get; set; }
+}
 
-        protected override Result RestoreCore()
-        {
-            throw new NotImplementedException();
-        }
-        [Required]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime? Birthdate { get; set; }
-
-    }
+public class Country : AggregateRoot
+{
+    public string Name { get; set; }
 }

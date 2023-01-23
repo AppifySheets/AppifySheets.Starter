@@ -1,6 +1,8 @@
 mkdir c:\root\.nuget\packages
 mkdir /root/.nuget/packages
 
+dotnet tool install --global dotnet-ef
+
 echo "Updating database schema with initial migrations"
 dotnet ef database update --project ..\src\L3.EfCore.Migrations\L3.EfCore.Migrations.csproj
 
