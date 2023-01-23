@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace L1.Domain.Models;
+﻿namespace L1.Domain.Models;
 
 public class Patient : AggregateRoot
 {
@@ -8,9 +6,4 @@ public class Patient : AggregateRoot
     public string LastName { get; set; }
     public DateTime Birthdate { get; set; }
     public string IdNumber { get; set; }
-}
-
-public class Country : AggregateRoot
-{
-    public string Name { get; set; }
 }

@@ -1,6 +1,6 @@
 ﻿using DevExpress.ExpressApp;
 
-namespace AppifySheets.Blazor.Module;
+namespace L4.XAF.Blazor.Module;
 
 public sealed class BlazorModule : ModuleBase
 {

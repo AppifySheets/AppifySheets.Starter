@@ -8,6 +8,7 @@ using AppifySheets.EfCore.ApplicationBase;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
 using L3.XAF.Common.Module;
+using L4.XAF.Blazor.Module;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;

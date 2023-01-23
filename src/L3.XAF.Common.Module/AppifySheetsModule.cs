@@ -7,6 +7,7 @@ using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Updating;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.Validation;
+using L1.Domain.BaseModels;
 using L1.Domain.Models;
 using MassTransit.Internals;
 using Updater = L3.XAF.Common.Module.Updater;
@@ -26,12 +27,15 @@ public sealed class AppifySheetsModule : AppifySheetsEfCoreModuleBase
     public override void CustomizeTypesInfo(ITypesInfo typesInfo)
     {
         base.CustomizeTypesInfo(typesInfo);
-
-        typesInfo.PersistentTypes.ForEach(t =>
+        return;
+        typesInfo
+            .PersistentTypes
+            .Where(pt => !pt.IsAbstract && pt.AssemblyInfo.Assembly == typeof(BasicUser).Assembly)
+            .ForEach(t =>
         {
-            t.Members.ForEach(m =>
+            t.OwnMembers.ForEach(m =>
             {
-                if (m.FindAttribute<RequiredAttribute>() != null || t.Type.GetProperty(m.Name)!.PropertyIsNotNullable())
+                if (m.FindAttribute<RequiredAttribute>() != null)// || t.Type.GetProperty(m.Name)!.PropertyIsNotNullable())
                     m.AddAttribute(new RuleRequiredFieldAttribute());
             });
         });
@@ -48,9 +52,5 @@ public static class CheckNullableExtensions
         return propertyInfoContext.ReadState == NullabilityState.Nullable;
     }
 
-    public static bool PropertyIsNotNullable(this PropertyInfo propertyInfo)
-    {
-        var propertyInfoContext = context.Create(propertyInfo);
-        return propertyInfoContext.ReadState == NullabilityState.Nullable;
-    }
+    public static bool PropertyIsNotNullable(this PropertyInfo propertyInfo) => !PropertyIsNullable(propertyInfo);
 }

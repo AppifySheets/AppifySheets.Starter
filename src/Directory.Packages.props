@@ -124,19 +124,19 @@
 
         <PackageVersion Include="ShopifySharp" Version="5.19.0"/>
 
-        <PackageVersion Include="AppifySheets.GeneralModules" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.Domain.Common" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.Users.Infrastructure" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.EfCore.Infrastructure" Version="3.5.0"/>
-        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module.EfCore" Version="3.5.0"/>
-        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.EfCore.ApplicationBase" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.Common.XAF.Module.EfCore" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.SuperGeneral.Stuff" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.EfCore.Infrastructure.Postgres" Version="3.5.0"/>
-        <PackageVersion Include="AppifySheets.Desktop.XAF.LauncherBase" Version="3.5.0"/>
+        <PackageVersion Include="AppifySheets.GeneralModules" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.Domain.Common" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.Users.Infrastructure" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.EfCore.Infrastructure" Version="3.5.3"/>
+        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module.EfCore" Version="3.5.3"/>
+        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.EfCore.ApplicationBase" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.Common.XAF.Module.EfCore" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.SuperGeneral.Stuff" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.EfCore.Infrastructure.Postgres" Version="3.5.3"/>
+        <PackageVersion Include="AppifySheets.Desktop.XAF.LauncherBase" Version="3.5.3"/>
 
     </ItemGroup>
 </Project>

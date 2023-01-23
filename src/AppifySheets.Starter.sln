@@ -1,26 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30611.23
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L4.XAF.Blazor.Module", "L4.XAF.Blazor.Module\L4.XAF.Blazor.Module.csproj", "{6030F388-20FA-46C7-B039-72FCF0506934}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L1.Domain", "L1.Domain\L1.Domain.csproj", "{34BA9729-086D-4FC3-9753-F7C71FC81D08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L1.Domain", "L1.Domain\L1.Domain.csproj", "{34BA9729-086D-4FC3-9753-F7C71FC81D08}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{10E5F364-1644-4EE6-A875-7A4F4DB74ABF}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Packages.props = Directory.Packages.props
+		NuGet.Config = NuGet.Config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L2.EfCore.Infrastructure", "L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj", "{8313274F-2DC0-4EF3-8CB6-303F1F852D4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L2.EfCore.Infrastructure", "L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj", "{8313274F-2DC0-4EF3-8CB6-303F1F852D4D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L5.XAF.Blazor.Server", "L5.XAF.Blazor.Server\L5.XAF.Blazor.Server.csproj", "{E901BE9F-15C0-42B5-BF4D-3EFF37D82AF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L5.XAF.Blazor.Server", "L5.XAF.Blazor.Server\L5.XAF.Blazor.Server.csproj", "{E901BE9F-15C0-42B5-BF4D-3EFF37D82AF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3.EfCore.Migrations", "L3.EfCore.Migrations\L3.EfCore.Migrations.csproj", "{CBA5ED7D-613A-46AF-8A2A-A6D5CE6AE195}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L3.EfCore.Migrations", "L3.EfCore.Migrations\L3.EfCore.Migrations.csproj", "{CBA5ED7D-613A-46AF-8A2A-A6D5CE6AE195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3.XAF.Common.Module", "L3.XAF.Common.Module\L3.XAF.Common.Module.csproj", "{DF977F04-A8A3-431E-BD39-2858598F2C25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L3.XAF.Common.Module", "L3.XAF.Common.Module\L3.XAF.Common.Module.csproj", "{DF977F04-A8A3-431E-BD39-2858598F2C25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L5.XAF.Desktop.Launcher", "L5.XAF.Desktop.Launcher\L5.XAF.Desktop.Launcher.csproj", "{E1572CA9-A68C-4549-A9C4-77C83757BD00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L5.XAF.Desktop.Launcher", "L5.XAF.Desktop.Launcher\L5.XAF.Desktop.Launcher.csproj", "{E1572CA9-A68C-4549-A9C4-77C83757BD00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,8 +75,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82782DD0-3154-439D-B551-D3E0096F9084}
