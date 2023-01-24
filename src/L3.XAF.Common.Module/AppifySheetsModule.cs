@@ -9,7 +9,6 @@ using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.Validation;
 using L1.Domain.BaseModels;
 using L1.Domain.Models;
-using MassTransit.Internals;
 using Updater = L3.XAF.Common.Module.Updater;
 
 namespace L3.XAF.Common.Module;
@@ -23,32 +22,33 @@ public sealed class AppifySheetsModule : AppifySheetsEfCoreModuleBase
     }
 
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDb) => new Updater(objectSpace, versionFromDb).ToEnumerable();
-
+    
     public override void CustomizeTypesInfo(ITypesInfo typesInfo)
     {
         base.CustomizeTypesInfo(typesInfo);
-        return;
+
         typesInfo
             .PersistentTypes
             .Where(pt => !pt.IsAbstract && pt.AssemblyInfo.Assembly == typeof(BasicUser).Assembly)
             .ForEach(t =>
-        {
-            t.OwnMembers.ForEach(m =>
             {
-                if (m.FindAttribute<RequiredAttribute>() != null)// || t.Type.GetProperty(m.Name)!.PropertyIsNotNullable())
-                    m.AddAttribute(new RuleRequiredFieldAttribute());
+                t.OwnMembers.ForEach(m =>
+                {
+                    if (m.FindAttribute<RequiredAttribute>() != null || (t.Type.GetProperty(m.Name)?.PropertyIsNotNullable() ?? false))
+                        m.AddAttribute(new RuleRequiredFieldAttribute());
+                });
             });
-        });
     }
 }
 
 public static class CheckNullableExtensions
 {
-    readonly static NullabilityInfoContext context = new();
+    static readonly NullabilityInfoContext Context = new();
 
+    // ReSharper disable once MemberCanBePrivate.Global
     public static bool PropertyIsNullable(this PropertyInfo propertyInfo)
     {
-        var propertyInfoContext = context.Create(propertyInfo);
+        var propertyInfoContext = Context.Create(propertyInfo);
         return propertyInfoContext.ReadState == NullabilityState.Nullable;
     }
 

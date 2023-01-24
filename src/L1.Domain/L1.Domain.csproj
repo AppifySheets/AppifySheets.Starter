@@ -15,6 +15,7 @@
         <PackageReference Include="Fody" PrivateAssets="All" />
         <PackageReference Include="EmptyConstructor.Fody" PrivateAssets="All" />
         <PackageReference Include="Virtuosity.Fody" PrivateAssets="All" />
+        <PackageReference Include="Publicize.Fody" PrivateAssets="All" />
 
         <!--        <PackageReference Include="AppifySheets.Common.XAF.Module.EfCore" />-->
         <!--        <PackageReference Include="AppifySheets.EfCore.Infrastructure" />-->

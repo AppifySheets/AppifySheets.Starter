@@ -10,16 +10,14 @@ namespace L2.EfCore.Infrastructure;
 
 public class ApplicationDbContext : AppifySheetsEfCoreDbContextBasePostgres<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
-    public const string ProductionConnectionString = "Server=144.24.160.225;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
-    public const string DevelopmentConnectionString = "Server=postgres;Port=5432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
-    
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime, HttpClient httpClient) : base(options, dispatcher, dateTime)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime) : base(options, dispatcher, dateTime)
     {
     }
 
-    public DbSet<City> Cities => Set<City>();
-    public DbSet<Patient> Patients => Set<Patient>();
-    public DbSet<Country> Countries => Set<Country>();
+    // public DbSet<City> Cities => Set<City>();
+    //
+    // public DbSet<Patient> Patients => Set<Patient>();
+    // public DbSet<Country> Countries => Set<Country>();
 
     protected override Unit OnConfiguringCore(DbContextOptionsBuilder optionsBuilder) => Unit.Value;
 

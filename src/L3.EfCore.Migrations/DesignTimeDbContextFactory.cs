@@ -8,7 +8,7 @@ namespace L3.EfCore.Migrations;
 public class DesignTimeDbContextFactory : DesignTimeDbContextFactoryBase<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
     protected override void InitializeDbContext(DbContextOptionsBuilder<ApplicationDbContext> builder)
-        => builder.UseNpgsql(ApplicationDbContext.ProductionConnectionString
+        => builder.UseNpgsql(ConnectionStringStore.AppifySheetsConnectionString
             , b =>
             {
                 b.MigrationsAssembly(GetType().Assembly.FullName);
@@ -16,5 +16,5 @@ public class DesignTimeDbContextFactory : DesignTimeDbContextFactoryBase<Applica
             });
 
     protected override ApplicationDbContext DbContextCreator(DbContextOptions<ApplicationDbContext> options)
-        => new(options, null, null, null);
+        => new(options, null, null);
 }

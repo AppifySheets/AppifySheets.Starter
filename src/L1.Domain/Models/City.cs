@@ -1,22 +1,53 @@
-﻿using AppifySheets.Domain.Common;
-using CSharpFunctionalExtensions;
-using L1.Domain.BaseModels;
+﻿using L1.Domain.BaseModels;
 
 namespace L1.Domain.Models;
 
-public abstract class AggregateRoot : AggregateRoot<BasicUser>
+public class Patient : AggregateRoot
 {
-    protected override Result ExpireCore(DateTime expiredOn, BasicUser expiredBy) => throw new NotImplementedException();
-    protected override Result RestoreCore() => throw new NotImplementedException();
+    public Patient()
+    {
+    }
+
+    public required string FirstName { get; init; }
+    public required string LastName { get; init; }
+    public required DateTime Birthdate { get; init; }
+    public required string IdNumber { get; init; }
+    public string? SocialSecurityNumber { get; init; }
+    public required string PhoneNumber { get; init; }
+    public required Country Citizenship { get; init; }
+}
+
+public class Condition : AggregateRoot
+{
+    public required string ConditionName { get; init; }
+    public ICD10? Diagnosis { get; init; }
+    public DateTime? DiagnosedOn { get; init; }
+
+    public IEnumerable<Medication> Medications = new List<Medication>();
+}
+
+public class Medication : AggregateRoot
+{
+    public required string MedicationName { get; init; }
+}
+
+public class ICD10 : AggregateRoot
+{
+    public required string Code { get; init; }
 }
 
 public class City : AggregateRoot
 {
-    public string CityName { get; set; }
-    public State State { get; set; }
+    public required string CityName { get; init; }
+    public required State State { get; init; }
 }
 
 public class State : AggregateRoot
 {
-    public string StateName { get; set; }
+    public required string StateName { get; init; }
+}
+
+public class Country : AggregateRoot
+{
+    public required string Name { get; init; }
 }

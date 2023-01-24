@@ -10,7 +10,6 @@ public class Program : WinProgramBase<AppifySheetsDesktopApplication, AppifyShee
     [STAThread]
     public static int Main(string[] arguments) => new Program().MainBase(arguments);
 
-    protected override string ConnectionString => ApplicationDbContext.ProductionConnectionString;
     protected override Func<IServiceProvider, AppifySheetsDesktopApplication> ApplicationFactory => sp => new AppifySheetsDesktopApplication(sp);
 }
 

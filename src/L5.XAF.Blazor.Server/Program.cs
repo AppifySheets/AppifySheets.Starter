@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using AppifySheets.Blazor.Module;
 using AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres;
 using AppifySheets.Common.XAF.Module.Extra;
 using AppifySheets.Domain.Common;
@@ -33,8 +32,6 @@ public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, Applic
     }
 
     protected override IEnumerable<Type> ModulesToAdd => Types.From<AppifySheetsModule, BlazorModule>();
-    protected override string ConnectionString => ApplicationDbContext.ProductionConnectionString;
     protected override Unit ConfigureCore(IApplicationBuilder app, IWebHostEnvironment env) => Unit.Default;
     protected override Unit ConfigureServicesCore(IServiceCollection services) => Unit.Default;
 }
-
