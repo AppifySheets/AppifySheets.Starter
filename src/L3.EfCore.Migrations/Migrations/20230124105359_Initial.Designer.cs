@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AppifySheets.EFCore.Migrations.Migrations
+namespace L3.EfCore.Migrations.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230116144616_State")]
-    partial class State
+    [Migration("20230124105359_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -471,35 +471,6 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.ToTable("ReportDatasV2");
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("LoginProviderName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ProviderUserKey")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UserID");
-
-                    b.HasIndex("LoginProviderName", "ProviderUserKey")
-                        .IsUnique();
-
-                    b.ToTable("ApplicationUserLoginInfos", (string)null);
-                });
-
             modelBuilder.Entity("L1.Domain.BaseModels.BasicUser", b =>
                 {
                     b.Property<int>("Id")
@@ -555,11 +526,6 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CityName");
@@ -572,7 +538,243 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("City");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("ConditionName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DiagnosedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<long?>("DiagnosisId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("DiagnosisId");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Condition");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Country", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("ICD10");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("MedicationName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Medication");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Patient", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTime>("Birthdate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<long>("CitizenshipId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("IdNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SocialSecurityNumber")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CitizenshipId");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Patient");
                 });
 
             modelBuilder.Entity("L1.Domain.Models.State", b =>
@@ -605,11 +807,6 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedById");
@@ -621,6 +818,35 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.ToTable("State");
                 });
 
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("LoginProviderName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProviderUserKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("UserID");
+
+                    b.HasIndex("LoginProviderName", "ProviderUserKey")
+                        .IsUnique();
+
+                    b.ToTable("ApplicationUserLoginInfos", (string)null);
+                });
+
             modelBuilder.Entity("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyRole", b =>
                 {
                     b.HasBaseType("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyRoleBase");
@@ -628,7 +854,7 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.HasDiscriminator().HasValue("AsPermissionPolicyRole");
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
                 {
                     b.HasBaseType("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyUser");
 
@@ -668,7 +894,7 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationRole", b =>
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationRole", b =>
                 {
                     b.HasBaseType("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyRole");
 
@@ -777,20 +1003,9 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
-                {
-                    b.HasOne("EfCore.Infrastructure.ApplicationUser", "User")
-                        .WithMany("UserLogins")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("L1.Domain.BaseModels.BasicUser", b =>
                 {
-                    b.HasOne("EfCore.Infrastructure.ApplicationUser", null)
+                    b.HasOne("L2.EfCore.Infrastructure.ApplicationUser", null)
                         .WithOne("BasicApplicationUser")
                         .HasForeignKey("L1.Domain.BaseModels.BasicUser", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -826,6 +1041,125 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Navigation("State");
                 });
 
+            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.Models.ICD10", "Diagnosis")
+                        .WithMany()
+                        .HasForeignKey("DiagnosisId");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("Diagnosis");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Country", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Patient", b =>
+                {
+                    b.HasOne("L1.Domain.Models.Country", "Citizenship")
+                        .WithMany()
+                        .HasForeignKey("CitizenshipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("Citizenship");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
             modelBuilder.Entity("L1.Domain.Models.State", b =>
                 {
                     b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
@@ -847,7 +1181,18 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
+                {
+                    b.HasOne("L2.EfCore.Infrastructure.ApplicationUser", "User")
+                        .WithMany("UserLogins")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
                 {
                     b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
@@ -900,7 +1245,7 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Navigation("ObjectPermissions");
                 });
 
-            modelBuilder.Entity("EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
                 {
                     b.Navigation("BasicApplicationUser")
                         .IsRequired();

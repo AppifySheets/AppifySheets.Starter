@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AppifySheets.EFCore.Migrations.Migrations
+namespace L3.EfCore.Migrations.Migrations
 {
     public partial class Initial : Migration
     {
@@ -247,13 +247,12 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cities",
+                name: "Country",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    CityName = table.Column<string>(type: "text", nullable: true),
-                    xmin = table.Column<uint>(type: "xid", rowVersion: true, nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
@@ -263,19 +262,87 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cities", x => x.Id);
+                    table.PrimaryKey("PK_Country", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cities_ApplicationUsers_CreatedById",
+                        name: "FK_Country_ApplicationUsers_CreatedById",
                         column: x => x.CreatedById,
                         principalTable: "ApplicationUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Cities_ApplicationUsers_ExpiredById",
+                        name: "FK_Country_ApplicationUsers_ExpiredById",
                         column: x => x.ExpiredById,
                         principalTable: "ApplicationUsers",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_Cities_ApplicationUsers_LastModifiedById",
+                        name: "FK_Country_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ICD10",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Code = table.Column<string>(type: "text", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ICD10", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ICD10_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ICD10_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ICD10_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Medication",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    MedicationName = table.Column<string>(type: "text", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Medication", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Medication_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Medication_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Medication_ApplicationUsers_LastModifiedById",
                         column: x => x.LastModifiedById,
                         principalTable: "ApplicationUsers",
                         principalColumn: "Id");
@@ -303,6 +370,40 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                         principalTable: "ApplicationUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "State",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    StateName = table.Column<string>(type: "text", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_State", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_State_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_State_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_State_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -412,6 +513,134 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                         principalColumn: "ID");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Patient",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
+                    LastName = table.Column<string>(type: "text", nullable: false),
+                    Birthdate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    IdNumber = table.Column<string>(type: "text", nullable: false),
+                    SocialSecurityNumber = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
+                    CitizenshipId = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Patient", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Patient_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Patient_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Patient_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Patient_Country_CitizenshipId",
+                        column: x => x.CitizenshipId,
+                        principalTable: "Country",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Condition",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ConditionName = table.Column<string>(type: "text", nullable: false),
+                    DiagnosisId = table.Column<long>(type: "bigint", nullable: true),
+                    DiagnosedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Condition", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Condition_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Condition_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Condition_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Condition_ICD10_DiagnosisId",
+                        column: x => x.DiagnosisId,
+                        principalTable: "ICD10",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "City",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    CityName = table.Column<string>(type: "text", nullable: false),
+                    StateId = table.Column<long>(type: "bigint", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredOn = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    ExpiredById = table.Column<int>(type: "integer", nullable: true),
+                    CreatedById = table.Column<int>(type: "integer", nullable: true),
+                    LastModifiedById = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_City", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_City_ApplicationUsers_CreatedById",
+                        column: x => x.CreatedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_City_ApplicationUsers_ExpiredById",
+                        column: x => x.ExpiredById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_City_ApplicationUsers_LastModifiedById",
+                        column: x => x.LastModifiedById,
+                        principalTable: "ApplicationUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_City_State_StateId",
+                        column: x => x.StateId,
+                        principalTable: "State",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_ApplicationUserLoginInfos_LoginProviderName_ProviderUserKey",
                 table: "ApplicationUserLoginInfos",
@@ -465,29 +694,119 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 column: "UserObjectID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cities_CityName",
-                table: "Cities",
+                name: "IX_City_CityName",
+                table: "City",
                 column: "CityName");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cities_CreatedById",
-                table: "Cities",
+                name: "IX_City_CreatedById",
+                table: "City",
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cities_ExpiredById",
-                table: "Cities",
+                name: "IX_City_ExpiredById",
+                table: "City",
                 column: "ExpiredById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cities_LastModifiedById",
-                table: "Cities",
+                name: "IX_City_LastModifiedById",
+                table: "City",
+                column: "LastModifiedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_City_StateId",
+                table: "City",
+                column: "StateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Condition_CreatedById",
+                table: "Condition",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Condition_DiagnosisId",
+                table: "Condition",
+                column: "DiagnosisId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Condition_ExpiredById",
+                table: "Condition",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Condition_LastModifiedById",
+                table: "Condition",
+                column: "LastModifiedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_CreatedById",
+                table: "Country",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_ExpiredById",
+                table: "Country",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Country_LastModifiedById",
+                table: "Country",
+                column: "LastModifiedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ICD10_CreatedById",
+                table: "ICD10",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ICD10_ExpiredById",
+                table: "ICD10",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ICD10_LastModifiedById",
+                table: "ICD10",
+                column: "LastModifiedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Medication_CreatedById",
+                table: "Medication",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Medication_ExpiredById",
+                table: "Medication",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Medication_LastModifiedById",
+                table: "Medication",
                 column: "LastModifiedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ModelDifferenceAspects_OwnerID",
                 table: "ModelDifferenceAspects",
                 column: "OwnerID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_CitizenshipId",
+                table: "Patient",
+                column: "CitizenshipId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_CreatedById",
+                table: "Patient",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_ExpiredById",
+                table: "Patient",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patient_LastModifiedById",
+                table: "Patient",
+                column: "LastModifiedById");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PermissionPolicyActionPermissionObjects_RoleID",
@@ -518,6 +837,21 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 name: "IX_PermissionPolicyTypePermissionObjects_RoleID",
                 table: "PermissionPolicyTypePermissionObjects",
                 column: "RoleID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_State_CreatedById",
+                table: "State",
+                column: "CreatedById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_State_ExpiredById",
+                table: "State",
+                column: "ExpiredById");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_State_LastModifiedById",
+                table: "State",
+                column: "LastModifiedById");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -529,7 +863,10 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 name: "AuditData");
 
             migrationBuilder.DropTable(
-                name: "Cities");
+                name: "City");
+
+            migrationBuilder.DropTable(
+                name: "Condition");
 
             migrationBuilder.DropTable(
                 name: "DashboardsData");
@@ -538,10 +875,16 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 name: "FileDatas");
 
             migrationBuilder.DropTable(
+                name: "Medication");
+
+            migrationBuilder.DropTable(
                 name: "ModelDifferenceAspects");
 
             migrationBuilder.DropTable(
                 name: "ModulesInfo");
+
+            migrationBuilder.DropTable(
+                name: "Patient");
 
             migrationBuilder.DropTable(
                 name: "PermissionPolicyActionPermissionObjects");
@@ -565,7 +908,16 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                 name: "AuditEFCoreWeakReference");
 
             migrationBuilder.DropTable(
+                name: "State");
+
+            migrationBuilder.DropTable(
+                name: "ICD10");
+
+            migrationBuilder.DropTable(
                 name: "ModelDifferences");
+
+            migrationBuilder.DropTable(
+                name: "Country");
 
             migrationBuilder.DropTable(
                 name: "PermissionPolicyTypePermissionObjects");

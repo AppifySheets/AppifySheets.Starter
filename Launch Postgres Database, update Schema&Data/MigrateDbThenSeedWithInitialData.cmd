@@ -3,6 +3,8 @@ mkdir /root/.nuget/packages
 
 dotnet tool install --global dotnet-ef
 
+set ASPNETCORE_ENVIRONMENT=Development
+
 echo "Updating database schema with initial migrations"
 dotnet ef database update --project ..\src\L3.EfCore.Migrations\L3.EfCore.Migrations.csproj
 

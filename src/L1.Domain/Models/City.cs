@@ -4,10 +4,6 @@ namespace L1.Domain.Models;
 
 public class Patient : AggregateRoot
 {
-    public Patient()
-    {
-    }
-
     public required string FirstName { get; init; }
     public required string LastName { get; init; }
     public required DateTime Birthdate { get; init; }
@@ -23,7 +19,7 @@ public class Condition : AggregateRoot
     public ICD10? Diagnosis { get; init; }
     public DateTime? DiagnosedOn { get; init; }
 
-    public IEnumerable<Medication> Medications = new List<Medication>();
+    public readonly List<Medication> Medications = new();
 }
 
 public class Medication : AggregateRoot

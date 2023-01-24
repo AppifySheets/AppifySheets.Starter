@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AppifySheets.EFCore.Migrations.Migrations
+namespace L3.EfCore.Migrations.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -524,11 +524,6 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CityName");
@@ -541,7 +536,56 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("City");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("ConditionName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTime?>("DiagnosedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<long?>("DiagnosisId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("DiagnosisId");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Condition");
                 });
 
             modelBuilder.Entity("L1.Domain.Models.Country", b =>
@@ -574,10 +618,46 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -587,7 +667,48 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.HasIndex("LastModifiedById");
 
-                    b.ToTable("Countries");
+                    b.ToTable("ICD10");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("CreatedById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("ExpiredById")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("ExpiredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int?>("LastModifiedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("MedicationName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
+
+                    b.HasIndex("ExpiredById");
+
+                    b.HasIndex("LastModifiedById");
+
+                    b.ToTable("Medication");
                 });
 
             modelBuilder.Entity("L1.Domain.Models.Patient", b =>
@@ -600,6 +721,9 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<long>("CitizenshipId")
+                        .HasColumnType("bigint");
 
                     b.Property<int?>("CreatedById")
                         .HasColumnType("integer");
@@ -628,15 +752,19 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SocialSecurityNumber")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("CitizenshipId");
 
                     b.HasIndex("CreatedById");
 
@@ -644,7 +772,7 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.HasIndex("LastModifiedById");
 
-                    b.ToTable("Patients");
+                    b.ToTable("Patient");
                 });
 
             modelBuilder.Entity("L1.Domain.Models.State", b =>
@@ -676,11 +804,6 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<uint>("xmin")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("xid");
 
                     b.HasKey("Id");
 
@@ -916,7 +1039,76 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.Navigation("State");
                 });
 
+            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.Models.ICD10", "Diagnosis")
+                        .WithMany()
+                        .HasForeignKey("DiagnosisId");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("Diagnosis");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
             modelBuilder.Entity("L1.Domain.Models.Country", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+                {
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                        .WithMany()
+                        .HasForeignKey("ExpiredById");
+
+                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                        .WithMany()
+                        .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("ExpiredBy");
+
+                    b.Navigation("LastModifiedBy");
+                });
+
+            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
                 {
                     b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
@@ -939,6 +1131,12 @@ namespace AppifySheets.EFCore.Migrations.Migrations
 
             modelBuilder.Entity("L1.Domain.Models.Patient", b =>
                 {
+                    b.HasOne("L1.Domain.Models.Country", "Citizenship")
+                        .WithMany()
+                        .HasForeignKey("CitizenshipId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
@@ -950,6 +1148,8 @@ namespace AppifySheets.EFCore.Migrations.Migrations
                     b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
+
+                    b.Navigation("Citizenship");
 
                     b.Navigation("CreatedBy");
 
