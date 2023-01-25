@@ -1,49 +1,52 @@
-﻿using L1.Domain.BaseModels;
+﻿using CSharpFunctionalExtensions;
+using L1.Domain.BaseModels;
 
 namespace L1.Domain.Models;
 
 public class Patient : AggregateRoot
 {
-    public required string FirstName { get; init; }
-    public required string LastName { get; init; }
-    public required DateTime Birthdate { get; init; }
-    public required string IdNumber { get; init; }
-    public string? SocialSecurityNumber { get; init; }
-    public required string PhoneNumber { get; init; }
-    public required Country Citizenship { get; init; }
+    public required string FirstName { get; set; }
+    public required string LastName { get; set; }
+    public required DateTime Birthdate { get; set; }
+    public required string IdNumber { get; set; }
+    public string? SocialSecurityNumber { get; set; }
+    public required string PhoneNumber { get; set; }
+    public required Country Citizenship { get; set; }
+    public virtual List<Condition> Conditions { get; } = new();
 }
 
 public class Condition : AggregateRoot
 {
-    public required string ConditionName { get; init; }
-    public ICD10? Diagnosis { get; init; }
-    public DateTime? DiagnosedOn { get; init; }
+    public required string ConditionName { get; set; }
+    public ICD10? Diagnosis { get; set; }
+    public DateTime? DiagnosedOn { get; set; }
+    public virtual List<Medication> Medications { get; } = new();
 
-    public readonly List<Medication> Medications = new();
+    protected override Result ValidateCore() => Result.Success();
 }
 
 public class Medication : AggregateRoot
 {
-    public required string MedicationName { get; init; }
+    public required string MedicationName { get; set; }
 }
 
 public class ICD10 : AggregateRoot
 {
-    public required string Code { get; init; }
+    public required string Code { get; set; }
 }
 
 public class City : AggregateRoot
 {
-    public required string CityName { get; init; }
-    public required State State { get; init; }
+    public required string CityName { get; set; }
+    public required State State { get; set; }
 }
 
 public class State : AggregateRoot
 {
-    public required string StateName { get; init; }
+    public required string StateName { get; set; }
 }
 
 public class Country : AggregateRoot
 {
-    public required string Name { get; init; }
+    public required string Name { get; set; }
 }
