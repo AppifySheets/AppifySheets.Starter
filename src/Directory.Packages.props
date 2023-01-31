@@ -6,40 +6,6 @@
         <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0"/>
         <PackageVersion Include="AutoMapper.Extensions.ExpressionMapping" Version="4.1.2"/>
         <PackageVersion Include="Castle.Core" Version="[4.4.1, 5.0)"/>
-        <PackageVersion Include="DevExpress.Data" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.CloneObject.Xpo" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.ConditionalAppearance" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.FileAttachment.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Security.Xpo" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Security" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Validation" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.ViewVariantsModule" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Win" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Persistent.BaseImpl.Xpo" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Persistent.BaseImpl" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Dashboard.Core" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.DataAccess" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Xpo" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.CodeAnalysis" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.AuditTrail.EFCore" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Dashboards" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.EFCore" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.AspNetCore" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Objects" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Office" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Persistent.Base" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.Persistent.BaseImpl.EFCore" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Dashboards.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Office.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Validation.Blazor" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.WebApi" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Notifications.Win" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.ReportsV2.Win" Version="22.2.3"/>
-        <PackageVersion Include="DevExpress.ExpressApp.Validation.Win" Version="22.2.3"/>
         <!--        <PackageVersion Include="DevExpress.EntityFrameworkCore.Security" Version="22.2.3"/>-->
         <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.2.0"/>
         <PackageVersion Include="Microsoft.CodeAnalysis.Common" Version="4.2.0"/>
@@ -124,19 +90,19 @@
 
         <PackageVersion Include="ShopifySharp" Version="5.19.0"/>
 
-        <PackageVersion Include="AppifySheets.GeneralModules" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.Domain.Common" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.Users.Infrastructure" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.EfCore.Infrastructure" Version="3.5.6"/>
-        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module.EfCore" Version="3.5.6"/>
-        <PackageVersion Include="AppifySHeets.Blazor.Common.XAF.Module" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.EfCore.ApplicationBase" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.Common.XAF.Module.EfCore" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.SuperGeneral.Stuff" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.EfCore.Infrastructure.Postgres" Version="3.5.6"/>
-        <PackageVersion Include="AppifySheets.Desktop.XAF.LauncherBase" Version="3.5.6"/>
+        <PackageVersion Include="AppifySheets.GeneralModules" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Domain.Common" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Users.Infrastructure" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.EfCore.Infrastructure" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Blazor.Common.XAF.Module.EfCore" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Blazor.Common.XAF.Module" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.EfCore.ApplicationBase" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Common.XAF.Module.EfCore" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.SuperGeneral.Stuff" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.EfCore.Infrastructure.Postgres" Version="3.5.7"/>
+        <PackageVersion Include="AppifySheets.Desktop.XAF.LauncherBase" Version="3.5.7"/>
 
     </ItemGroup>
 </Project>

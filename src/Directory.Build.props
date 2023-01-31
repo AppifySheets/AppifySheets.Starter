@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
 
         <Company>AppifySheets</Company>
         <AssemblyVersion>3.3.1</AssemblyVersion>

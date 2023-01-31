@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFi
 	ProjectSection(SolutionItems) = preProject
 		Directory.Packages.props = Directory.Packages.props
 		NuGet.Config = NuGet.Config
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L2.EfCore.Infrastructure", "L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj", "{8313274F-2DC0-4EF3-8CB6-303F1F852D4D}"
