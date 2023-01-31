@@ -7,16 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AppifySheets.Common.XAF.Module.EfCore" />
-        <PackageReference Include="AppifySheets.EfCoreIntegration.ModuleBase" />
+        <PackageReference Include="AppifySheets.Common.XAF.Module.EfCore" Version="*" />
+        <PackageReference Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="*" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Fody" PrivateAssets="All" />
-        <PackageReference Include="PropertyChanged.Fody" PrivateAssets="All" />
+        <PackageReference Include="Fody" PrivateAssets="All" Version="*" />
+        <PackageReference Include="PropertyChanged.Fody" PrivateAssets="All" Version="*" />
     </ItemGroup>
 
     <ItemGroup>

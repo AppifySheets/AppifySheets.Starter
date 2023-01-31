@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres;
+using AppifySheets.Common.XAF.Module.Extra;
 using AppifySheets.Domain.Common;
 using AppifySheets.EfCore.ApplicationBase;
 using CSharpFunctionalExtensions;
@@ -8,6 +9,8 @@ using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
 using L3.XAF.Common.Module;
 using L4.XAF.Blazor.Module;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,6 +34,11 @@ public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, Applic
     }
 
     protected override IEnumerable<Type> ModulesToAdd => Types.From<AppifySheetsModule, BlazorModule>();
+
+    protected override void ConfigureCoreBefore(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        app.UsePathBase("/temp");
+    }
 
     protected override void ConfigureServicesCore(IServiceCollection services)
     {

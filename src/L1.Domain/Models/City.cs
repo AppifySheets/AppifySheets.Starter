@@ -1,4 +1,5 @@
-﻿using L1.Domain.BaseModels;
+﻿using CSharpFunctionalExtensions;
+using L1.Domain.BaseModels;
 
 namespace L1.Domain.Models;
 
@@ -20,6 +21,8 @@ public class Condition : AggregateRoot
     public ICD10? Diagnosis { get; set; }
     public DateTime? DiagnosedOn { get; set; }
     public virtual List<Medication> Medications { get; } = new();
+
+    protected override Result ValidateCore() => Result.Success();
 }
 
 public class Medication : AggregateRoot

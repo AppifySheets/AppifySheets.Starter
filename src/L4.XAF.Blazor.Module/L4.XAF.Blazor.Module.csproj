@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AppifySheets.Blazor.Common.XAF.Module.EfCore" />
+        <PackageReference Include="AppifySheets.Blazor.Common.XAF.Module.EfCore" Version="*" />
     </ItemGroup>
 
     <ItemGroup>

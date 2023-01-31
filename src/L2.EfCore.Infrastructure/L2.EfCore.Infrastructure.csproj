@@ -14,7 +14,7 @@
 <!--    </ItemGroup>-->
 
     <ItemGroup>
-        <PackageReference Include="AppifySheets.EfCore.Infrastructure.Postgres" />
+        <PackageReference Include="AppifySheets.EfCore.Infrastructure.Postgres" Version="*" />
     </ItemGroup>
 
     <ItemGroup>

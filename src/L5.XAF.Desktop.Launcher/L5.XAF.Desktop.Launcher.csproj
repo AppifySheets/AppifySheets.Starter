@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="AppifySheets.Desktop.XAF.LauncherBase" />
+      <PackageReference Include="AppifySheets.Desktop.XAF.LauncherBase" Version="*" />
     </ItemGroup>
 
     <ItemGroup>

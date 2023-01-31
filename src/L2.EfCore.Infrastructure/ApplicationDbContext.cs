@@ -26,5 +26,13 @@ public class ApplicationDbContext : AppifySheetsEfCoreDbContextBasePostgres<Appl
     protected override void OnModelCreatingCore(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<City>(o => o.HasIndex(e => e.CityName));
+        
+        modelBuilder.Entity<Entity>()
+            .HasMany(e => e.EntityCollectionMembers)
+            .WithOne(ecm => ecm.ParentEntity);
+        
+        modelBuilder.Entity<Entity>()
+            .HasMany(e => e.EntityMembers)
+            .WithOne(ecm => ecm.ParentEntity);
     }
 }
