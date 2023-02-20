@@ -19,9 +19,4 @@
         <PackageReference Include="PropertyChanged.Fody" PrivateAssets="All" Version="*" />
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Controllers" />
-        <Folder Include="Proxies" />
-    </ItemGroup>
-
 </Project>

@@ -19,7 +19,7 @@ namespace L5.XAF.Blazor.Server;
 public class Program : BlazorProgramBase<Startup>
 {
     public static int Main(string[] args) => new Program().MainBase(args);
-    protected override Maybe<Type> OneTypeFromProxyTypesAssembly => Maybe.None;
+    protected override Maybe<Type> OneTypeFromProxyTypesAssembly => typeof(CityProxy);
 }
 
 public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<ApplicationDbContext>
@@ -37,7 +37,7 @@ public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, Applic
 
     protected override void ConfigureCoreBefore(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UsePathBase("/temp");
+        app.UsePathBase("/appify1");
     }
 
     protected override void ConfigureServicesCore(IServiceCollection services)
