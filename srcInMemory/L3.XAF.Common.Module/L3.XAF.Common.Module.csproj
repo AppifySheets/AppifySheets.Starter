@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AppifySheets.Common.XAF.Module.EfCore" Version="*" />
+        <PackageReference Include="AppifySheets.EfCoreIntegration.ModuleBase" Version="*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fody" PrivateAssets="All" Version="*" />
+        <PackageReference Include="PropertyChanged.Fody" PrivateAssets="All" Version="*" />
+    </ItemGroup>
+
+</Project>

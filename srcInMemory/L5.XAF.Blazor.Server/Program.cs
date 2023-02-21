@@ -11,6 +11,7 @@ using L3.XAF.Common.Module;
 using L4.XAF.Blazor.Module;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,11 +26,16 @@ public class Program : BlazorProgramBase<Startup>
 // ReSharper disable once ClassNeverInstantiated.Global
 public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<ApplicationDbContext>
 {
+    protected override void CheckCompatibilityCore()
+    {
+        base.CheckCompatibilityCore();
+    }
+
     protected override string ApplicationNameCore => "AppifySheets Template";
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
-public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
+public class Startup : StartupBase<AppifySheetsBlazorApplication, ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
     public Startup(IConfiguration configuration) : base(configuration)
     {
@@ -40,6 +46,11 @@ public class Startup : StartupBasePostgres<AppifySheetsBlazorApplication, Applic
     protected override void ConfigureCoreBefore(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UsePathBase("/appify1");
+    }
+
+    protected override void UseDbServer(DbContextOptionsBuilder options, string connectionString)
+    {
+        options.UseInMemoryDatabase("InMemory");
     }
 
     protected override void ConfigureServicesCore(IServiceCollection services)
