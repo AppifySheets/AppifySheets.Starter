@@ -3,7 +3,6 @@ using CSharpFunctionalExtensions;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.EFCore;
 using L1.Domain.Models;
-using Entity = L1.Domain.Models.Entity;
 
 namespace L3.XAF.Common.Module;
 
@@ -18,13 +17,11 @@ public class CityProxy : EntityXafProxy<City, long>
     }
 
     public string? CityName { get; set; }
-    public State? State { get; set; }
 
     protected override Result<City> CreateEntityBeforeSaving()
         => new City
         {
             CityName = CityName,
-            State = State
         };
 
     protected override Result SaveCore(City entity)

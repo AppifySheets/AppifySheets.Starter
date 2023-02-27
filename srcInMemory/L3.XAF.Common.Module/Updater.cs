@@ -20,6 +20,7 @@ public class Updater : ModuleUpdater {
         if(userUser == null) {
             userUser = ObjectSpace.CreateObject<ApplicationUser>();
             userUser.UserName = "User";
+            userUser.DisplayName = "User";
             // Set a password if the standard authentication type is used
             userUser.SetPassword("");
 
@@ -36,6 +37,7 @@ public class Updater : ModuleUpdater {
         if(userAdmin == null) {
             userAdmin = ObjectSpace.CreateObject<ApplicationUser>();
             userAdmin.UserName = admin;
+            userAdmin.DisplayName = admin;
             // Set a password if the standard authentication type is used
             userAdmin.SetPassword("");
 
@@ -81,6 +83,7 @@ public class Updater : ModuleUpdater {
         if(user2 == null) {
             user2 = ObjectSpace.CreateObject<ApplicationUser>();
             user2.UserName = "John";
+            user2.DisplayName = "John";
             // Set a password if the standard authentication type is used
             user2.SetPassword("");
 
