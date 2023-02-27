@@ -14,7 +14,7 @@ public class ConnectionStringInitializer : ConnectionStringStore
     protected override string GetConnectionString() => "Server=144.24.160.225;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
 }
 
-public class ApplicationDbContext : AppifySheetsEfCoreDbContextBase<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
+public class ApplicationDbContext : AppifySheetsEfCoreDbContextBaseInMemory<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime) : base(options, dispatcher, dateTime)
     {
