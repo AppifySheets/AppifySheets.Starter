@@ -20,22 +20,11 @@ public class ApplicationDbContext : AppifySheetsEfCoreDbContextBaseInMemory<Appl
     {
     }
 
-    // public DbSet<City> Cities => Set<City>();
-    //
-    // public DbSet<Patient> Patients => Set<Patient>();
-    // public DbSet<Country> Countries => Set<Country>();
-
-    protected override void DbSpecificRowVersioningSetup<TEntity>(ModelBuilder modelBuilder)
-    {
-        throw new NotImplementedException();
-    }
-
     protected override Unit OnConfiguringCore(DbContextOptionsBuilder optionsBuilder) => Unit.Value;
 
     protected override Task SaveChangesCoreAsync() => Task.CompletedTask;
 
     protected override void OnModelCreatingCore(ModelBuilder modelBuilder)
     {
-        
     }
 }
