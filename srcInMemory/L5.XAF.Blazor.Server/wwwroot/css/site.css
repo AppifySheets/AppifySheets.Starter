@@ -11,42 +11,12 @@ html, body {
     font-family: Calibri, sans-serif;
 }
 
-/*.col-form-label, .dxbl-fl-cpt {*/
-/*    display: none;*/
-/*}*/
-
-.alt-item > td {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.alternating-colors table tr:nth-child(even){
-    background-color: #f2f2f2;
-}
-
-.root-table {
-    height: calc(100vh - 150px) !important;
+.col-form-label {
+    display: none;
 }
 
 .xaf-alert-message {
     white-space: pre-line !important;
-}
-
-/*Add defaults*/
-.modal-dialog {
-    top: -50%; /*Put it on the very top*/
-    transition: all .5s ease-in-out; /*make it smooth*/
-}
-/*Now show it*/
-.modal-dialog.show {
-    visibility: visible;
-    z-index: 200;
-    opacity: 1;
-    top: 50%; /*slide it down smoothly*/
-}
-.modal-dialog.show ~ #overlay {
-    opacity: 1;
-    visibility: visible;
-    z-index: 100;
 }
 
 .xaf-nav-link {
@@ -57,21 +27,21 @@ html, body {
 .modal-content {
     background: url(../images/white-gradient-background.jpg) no-repeat center center fixed;
     /* Add the blur effect */
-    /* filter: blur(8px); */
-    /* -webkit-filter: blur(8px); */
+    /*filter: blur(8px);*/
+    /*-webkit-filter: blur(8px);*/
 
-    opacity: 9.0;
-    -webkit-transition: background 1.5s linear;
-    -moz-transition: background 1.5s linear;
-    -o-transition: background 1.5s linear;
-    transition: background 1.5s linear;
+    opacity: 1.0;
+    /*-webkit-transition: background 1.5s linear;*/
+    /*-moz-transition: background 1.5s linear;*/
+    /*-o-transition: background 1.5s linear;*/
+    /*transition: background 1.5s linear;*/
 }
 
 .card {
     background-color: rgba(255, 255, 255, .9) !important;
 }
 
-.app {
+app {
     display: block;
     height: 100%;
 }
@@ -81,12 +51,12 @@ html, body {
     background-color: currentColor;
     -webkit-mask: url('../images/AppifySheets_Logo.svg');
     mask: url('../images/AppifySheets_Logo.svg');
-    -webkit-mask-position: center;
-    mask-position: center;
+    -webkit-mask-position: left;
+    mask-position: left;
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     width: 180px;
-    height: 24px;
+    height: 50px;
 }
 
 #blazor-error-ui {
@@ -119,6 +89,22 @@ html, body {
     border-color: #fe7109;
 }
 
-/*.border {*/
-/*    white-space: pre-line !important;*/
+.loading-image {
+    width: 100px !important;
+    height: 100px !important;
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.bg-primary {
+    --bs-bg-opacity: 0 !important;
+}
+
+.border-primary {
+    border-color: lightgray !important;
+}
+
+/*.form-check-input:checked {*/
+/*    background-color: #D97800;*/
+/*    border-color: #D97800;*/
 /*}*/

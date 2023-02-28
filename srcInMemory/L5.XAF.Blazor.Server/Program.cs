@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using AppifySheets.Domain.Common;
 using AppifySheets.EfCore.ApplicationBase;
 using CSharpFunctionalExtensions;
+using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.Utils;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
 using L3.XAF.Common.Module;
@@ -24,6 +26,16 @@ public class Program : BlazorProgramBase<Startup>
 public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<ApplicationDbContext>
 {
     protected override string ApplicationNameCore => "AppifySheets In-Memory Demo";
+
+    protected override void ReadLastLogonParametersCore(SettingsStorage storage, object logonObject)
+    {
+        if (logonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
+        {
+            logonParameters.UserName = "Admin";
+        }
+
+        base.ReadLastLogonParametersCore(storage, logonObject);
+    }
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
