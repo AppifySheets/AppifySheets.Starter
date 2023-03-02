@@ -19,22 +19,33 @@ namespace L5.XAF.Blazor.Server;
 public class Program : BlazorProgramBase<Startup>
 {
     public static int Main(string[] args) => new Program().MainBase(args);
-    protected override Maybe<Type> OneTypeFromProxyTypesAssembly => typeof(CityProxy);
+    protected override Maybe<Type> OneTypeFromProxyTypesAssembly => Maybe.None;
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<ApplicationDbContext>
 {
-    protected override string ApplicationNameCore => "AppifySheets In-Memory Demo";
-
-    protected override void ReadLastLogonParametersCore(SettingsStorage storage, object logonObject)
+    public AppifySheetsBlazorApplication()
     {
-        if (logonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
+        LastLogonParametersRead += (s, e) =>
         {
-            logonParameters.UserName = "Admin";
-        }
+            if (e.LogonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
+            {
+                logonParameters.UserName = "Admin";
+            }
+        };
+    }
 
-        base.ReadLastLogonParametersCore(storage, logonObject);
+    protected override string ApplicationNameCore => StaticSettings.ApplicationName;
+    protected override SettingsStorage CreateLogonParameterStoreCore() => new EmptySettingsStorage();
+
+    class EmptySettingsStorage : SettingsStorage
+    {
+        public override string? LoadOption(string optionPath, string optionName) => null;
+
+        public override void SaveOption(string optionPath, string optionName, string optionValue)
+        {
+        }
     }
 }
 

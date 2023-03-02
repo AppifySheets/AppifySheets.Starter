@@ -1,9 +1,7 @@
 ﻿using AppifySheets.Common.XAF.Module.Helpers;
 using AppifySheets.Domain.Common;
 using AppifySheets.EfCore.Infrastructure.DbContext;
-using AppifySheets.EfCore.Infrastructure.Postgres;
 using L1.Domain.BaseModels;
-using L1.Domain.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
