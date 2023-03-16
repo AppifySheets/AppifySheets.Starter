@@ -20,7 +20,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	"postCreateCommand": "apt-get update && apt-get -y install libgdiplus && cd /workspaces/src && dotnet build"
+	"postCreateCommand": "apt update && apt -y install libgdiplus && cd /workspaces/src && dotnet build"
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
