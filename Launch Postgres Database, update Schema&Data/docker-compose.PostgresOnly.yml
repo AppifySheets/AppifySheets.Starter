@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    container_name: 'postgres'
+    image: postgres:latest
+    restart: always
+    ports:
+      - 15432:5432
+    environment:
+      - POSTGRES_USER=_appifysheets_user_
+      - POSTGRES_PASSWORD=ryI^^Tn7%rl39X2TbpI6l
+      - POSTGRES_DB=appifysheets
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    networks:
+      - appifysheets_network
+
+networks:
+  appifysheets_network:
+    driver: bridge

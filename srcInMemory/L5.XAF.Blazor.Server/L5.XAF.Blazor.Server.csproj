@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Deterministic>false</Deterministic>
+        <UserSecretsId>5fd510f5-8fe9-4bc2-8d93-873d25a54667</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <ServerGarbageCollection>false</ServerGarbageCollection>
+    </PropertyGroup>
+
+<!--    <ItemGroup>-->
+<!--        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">-->
+<!--            <PrivateAssets>all</PrivateAssets>-->
+<!--            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+<!--        </PackageReference>-->
+
+<!--        <PackageReference Include="Npgsql" />-->
+<!--        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" />-->
+<!--    </ItemGroup>-->
+    <ItemGroup>
+        <PackageReference Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="*" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\L4.XAF.Blazor.Module\L4.XAF.Blazor.Module.csproj" />
+    </ItemGroup>
+</Project>
