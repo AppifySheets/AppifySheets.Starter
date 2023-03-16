@@ -1,4 +1,6 @@
-﻿using AppifySheets.EfCore.Infrastructure.DbContext;
+﻿using AppifySheets.Common.XAF.Module.Helpers;
+using AppifySheets.Domain.Common;
+using AppifySheets.EfCore.Infrastructure.DbContext;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
@@ -16,5 +18,18 @@ public class DesignTimeDbContextFactory : DesignTimeDbContextFactoryBase<Applica
             });
 
     protected override ApplicationDbContext DbContextCreator(DbContextOptions<ApplicationDbContext> options)
-        => new(options, null, null);
+        => new(options, DummyDomainEventDispatcher.Empty, DateTimeWrapper.InstancePlus4Hours);
+}
+
+public class DummyDomainEventDispatcher : IDomainEventDispatcher
+{
+    public static readonly DummyDomainEventDispatcher Empty = new();
+    DummyDomainEventDispatcher()
+    {
+        
+    }
+    public Task Dispatch(IDomainEvent domainEvent)
+    {
+        throw new NotImplementedException();
+    }
 }
