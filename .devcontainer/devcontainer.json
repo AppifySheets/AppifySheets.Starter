@@ -7,9 +7,9 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+				"fernandoescolar.vscode-solution-explorer",
 				"ms-dotnettools.csharp",
 				"donjayamanne.githistory",
-				"fernandoescolar.vscode-solution-explorer",
 				"cweijan.vscode-postgresql-client2",
 				"streetsidesoftware.code-spell-checker",
 				"richardwillis.vscode-entity-framework",
@@ -20,10 +20,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	"runArgs": ["-y", "update", "-y", "install", "libgdiplus"],
-	"postCreateCommand": "cd /workspaces/src && dotnet build"
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+	"postCreateCommand": "apt-get update && apt-get -y install libgdiplus && cd /workspaces/src && dotnet build"
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
