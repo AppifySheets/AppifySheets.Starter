@@ -13,9 +13,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/srcInMemory/L5.XAF.Blazor.Server/bin/Debug/net7.0/L5.XAF.Blazor.Server.dll",
+            "program": "${workspaceFolder}/src/L5.XAF.Blazor.Server/bin/Debug/net7.0/L5.XAF.Blazor.Server.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/srcInMemory/L5.XAF.Blazor.Server",
+            "cwd": "${workspaceFolder}/src/L5.XAF.Blazor.Server",
             "stopAtEntry": false,
             // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
             "serverReadyAction": {
