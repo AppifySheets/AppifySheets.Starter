@@ -19,27 +19,27 @@ html, body {
     white-space: pre-line !important;
 }
 
-.xaf-nav-link {
-    color: black;
-    font-weight: bold;
-}
+/*.xaf-nav-link {*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*}*/
 
-.modal-content {
-    background: url(../images/white-gradient-background.jpg) no-repeat center center fixed;
-    /* Add the blur effect */
-    /*filter: blur(8px);*/
-    /*-webkit-filter: blur(8px);*/
+/*.modal-content {*/
+/*    background: url(../images/white-gradient-background.jpg) no-repeat center center fixed;*/
+/*    !* Add the blur effect *!*/
+/*    !*filter: blur(8px);*!*/
+/*    !*-webkit-filter: blur(8px);*!*/
 
-    opacity: 1.0;
-    /*-webkit-transition: background 1.5s linear;*/
-    /*-moz-transition: background 1.5s linear;*/
-    /*-o-transition: background 1.5s linear;*/
-    /*transition: background 1.5s linear;*/
-}
+/*    opacity: 1.0;*/
+/*    !*-webkit-transition: background 1.5s linear;*!*/
+/*    !*-moz-transition: background 1.5s linear;*!*/
+/*    !*-o-transition: background 1.5s linear;*!*/
+/*    !*transition: background 1.5s linear;*!*/
+/*}*/
 
-.card {
-    background-color: rgba(255, 255, 255, .9) !important;
-}
+/*.card {*/
+/*    background-color: rgba(255, 255, 255, .9) !important;*/
+/*}*/
 
 app {
     display: block;
@@ -81,9 +81,9 @@ app {
 /*    background-color: #4353FF !important;*/
 /*}*/
 
-.form-control[readonly]:not([disabled]).dx-reset-readonly-style {
-    background-color: rgb(255, 255, 255);
-}
+/*.form-control[readonly]:not([disabled]).dx-reset-readonly-style {*/
+/*    background-color: rgb(255, 255, 255);*/
+/*}*/
 
 .btn-secondary {
     border-color: #fe7109;

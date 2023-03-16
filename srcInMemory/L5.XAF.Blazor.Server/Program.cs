@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using AppifySheets.Domain.Common;
 using AppifySheets.EfCore.ApplicationBase;
 using CSharpFunctionalExtensions;
+using DevExpress.ExpressApp.Model;
 using DevExpress.ExpressApp.Security;
+using DevExpress.ExpressApp.SystemModule;
 using DevExpress.ExpressApp.Utils;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
@@ -13,6 +15,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SchedulerXafBlazorDemo.Module.Blazor.Editors;
 
 namespace L5.XAF.Blazor.Server;
 
@@ -29,10 +32,7 @@ public class AppifySheetsBlazorApplication : AppifySheetsBlazorApplicationBase<A
     {
         LastLogonParametersRead += (s, e) =>
         {
-            if (e.LogonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName))
-            {
-                logonParameters.UserName = "Admin";
-            }
+            if (e.LogonObject is AuthenticationStandardLogonParameters logonParameters && string.IsNullOrEmpty(logonParameters.UserName)) logonParameters.UserName = "Admin";
         };
     }
 
@@ -60,7 +60,6 @@ public class Startup : StartupBaseInMemory<AppifySheetsBlazorApplication, Applic
 
     protected override void ConfigureCoreBefore(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        app.UsePathBase("/appify1");
     }
 
     protected override void ConfigureServicesCore(IServiceCollection services)
