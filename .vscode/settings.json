@@ -2,5 +2,9 @@
     "cSpell.words": [
         "Appify",
         "Blazor"
+    ],
+    "vssolution.altSolutionFolders": [
+        "src",
+        "srcInMemory"
     ]
 }

@@ -12,7 +12,8 @@
 				"fernandoescolar.vscode-solution-explorer",
 				"cweijan.vscode-postgresql-client2",
 				"streetsidesoftware.code-spell-checker",
-				"richardwillis.vscode-entity-framework"
+				"richardwillis.vscode-entity-framework",
+				"eamodio.gitlens"
 			]
 		}
 	},
