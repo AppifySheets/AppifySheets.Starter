@@ -21,7 +21,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_EnableMailParser": "N"
       },
-      "applicationUrl": "http://localhost:11000"
+      "applicationUrl": "http://+:11000"
     },
     "Docker": {
       "commandName": "Docker",
