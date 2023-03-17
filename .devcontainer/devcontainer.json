@@ -19,7 +19,7 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	"postCreateCommand": "dotnet build /workspaces/AppifySheets.Starter/src/*.sln"
+	"initializeCommand": "dotnet build /workspaces/AppifySheets.Starter/src/*.sln"
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
