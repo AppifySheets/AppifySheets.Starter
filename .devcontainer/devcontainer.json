@@ -12,15 +12,14 @@
 				"donjayamanne.githistory",
 				"cweijan.vscode-postgresql-client2",
 				"streetsidesoftware.code-spell-checker",
-				"richardwillis.vscode-entity-framework",
-				"eamodio.gitlens"
+				"richardwillis.vscode-entity-framework"
 			]
 		}
 	},
 	"features": {
 		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
 	},
-	"postCreateCommand": "cd /workspaces/src && dotnet build"
+	"postCreateCommand": "cd ${workspaceFolder}/src && dotnet build"
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
