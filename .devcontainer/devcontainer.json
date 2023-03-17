@@ -7,8 +7,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"fernandoescolar.vscode-solution-explorer",
 				"ms-dotnettools.csharp",
+				"fernandoescolar.vscode-solution-explorer",
 				"donjayamanne.githistory",
 				"cweijan.vscode-postgresql-client2",
 				"streetsidesoftware.code-spell-checker",
