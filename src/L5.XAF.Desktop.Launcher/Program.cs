@@ -1,4 +1,5 @@
 ﻿using AppifySheets.Desktop.XAF.LauncherBase;
+using AppifySheets.EfCore.Infrastructure.ConnectionHelpers;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
 using L3.XAF.Common.Module;
@@ -11,6 +12,7 @@ public class Program : WinProgramBase<AppifySheetsDesktopApplication, AppifyShee
     public static int Main(string[] arguments) => new Program().MainBase(arguments);
 
     protected override Func<IServiceProvider, AppifySheetsDesktopApplication> ApplicationFactory => sp => new AppifySheetsDesktopApplication(sp);
+    protected override PostgresConnectionStringBuilder PostgresConnectionStringBuilder => ConnectionStringInitializer.GetConnectionString();
 }
 
 public class AppifySheetsDesktopApplication : AppifySheetsDesktopApplicationBase<ApplicationDbContext>

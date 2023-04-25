@@ -1,20 +1,26 @@
 ﻿using AppifySheets.Common.XAF.Module.Helpers;
 using AppifySheets.Domain.Common;
+using AppifySheets.EfCore.Infrastructure.ConnectionHelpers;
 using AppifySheets.EfCore.Infrastructure.DbContext;
+using DevExpress.ExpressApp.Security;
 using L1.Domain.BaseModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using static AppifySheets.EfCore.Infrastructure.ConnectionHelpers.ServerPort;
 
 namespace L2.EfCore.Infrastructure;
 
-public class ConnectionStringInitializer : ConnectionStringStore
+public static class ConnectionStringInitializer
 {
-    protected override string GetConnectionString() => "Server=144.24.160.225;Port=15432;Database=appifysheets;User Id=_appifysheets_user_;Password=ryI^^Tn7%rl39X2TbpI6l";
+    public static PostgresConnectionStringBuilder GetConnectionString()
+        => PostgresConnectionStringBuilder.AppifySheets(
+            ServerPortChecker.GetFirstAvailable(From("144.24.160.225", 15432)).ThrowOnFailureOrSuccessfulResult(),
+            "ryI^^Tn7%rl39X2TbpI6l");
 }
-
 public class ApplicationDbContext : AppifySheetsEfCoreDbContextBaseInMemory<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime) : base(options, dispatcher, dateTime)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime, ISecurityStrategyBase securityStrategyBase)
+        : base(options, dispatcher, dateTime, securityStrategyBase)
     {
     }
 
