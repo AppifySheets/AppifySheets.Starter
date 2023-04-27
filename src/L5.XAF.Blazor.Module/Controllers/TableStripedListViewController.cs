@@ -1,8 +1,7 @@
-using DevExpress.Blazor;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Blazor.Editors;
 
-namespace AppifySheets.Blazor.Module.Controllers;
+namespace L4.XAF.Blazor.Module.Controllers;
 
 public class TableStripedListViewController : ViewController<ListView>
 {

@@ -3,7 +3,7 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Updating;
 using L1.Domain.BaseModels;
 
-namespace L3.XAF.Common.Module;
+namespace L4.XAF.Common.Module;
 
 public sealed class AppifySheetsModule : AppifySheetsEfCoreModuleBase
 {

@@ -7,14 +7,14 @@ using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Utils;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
-using L3.XAF.Common.Module;
 using L4.XAF.Blazor.Module;
+using L4.XAF.Common.Module;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace L5.XAF.Blazor.Server;
+namespace L6.XAF.Blazor.Server;
 
 public class Program : BlazorProgramBase<Startup>
 {

@@ -2,9 +2,9 @@
 using AppifySheets.EfCore.Infrastructure.ConnectionHelpers;
 using L1.Domain.BaseModels;
 using L2.EfCore.Infrastructure;
-using L3.XAF.Common.Module;
+using L4.XAF.Common.Module;
 
-namespace L5.XAF.Desktop.Launcher;
+namespace L7.XAF.Desktop.Launcher;
 
 public class Program : WinProgramBase<AppifySheetsDesktopApplication, AppifySheetsModule, ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
 {

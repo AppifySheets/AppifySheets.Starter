@@ -20,6 +20,6 @@
         <PackageReference Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="*" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\L4.XAF.Blazor.Module\L4.XAF.Blazor.Module.csproj" />
+        <ProjectReference Include="..\L5.XAF.Blazor.Module\L5.XAF.Blazor.Module.csproj" />
     </ItemGroup>
 </Project>

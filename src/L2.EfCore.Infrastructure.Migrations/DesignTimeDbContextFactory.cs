@@ -5,10 +5,9 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using JetBrains.Annotations;
 using L1.Domain.BaseModels;
-using L2.EfCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
-namespace L3.EfCore.Migrations;
+namespace L2.EfCore.Infrastructure.Migrations;
 
 [UsedImplicitly]
 public class DesignTimeDbContextFactory : DesignTimeDbContextFactoryBase<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>

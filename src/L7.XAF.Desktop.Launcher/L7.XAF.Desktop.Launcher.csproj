@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\L3.XAF.Common.Module\L3.XAF.Common.Module.csproj" />
+        <ProjectReference Include="..\L4.XAF.Common.Module\L4.XAF.Common.Module.csproj" />
     </ItemGroup>
    
 </Project>

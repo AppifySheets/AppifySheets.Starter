@@ -7,7 +7,7 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EFCore.AuditTrail;
 using L2.EfCore.Infrastructure;
 
-namespace L3.XAF.Common.Module;
+namespace L4.XAF.Common.Module;
 
 public class Updater : ModuleUpdater {
     public Updater(IObjectSpace objectSpace, Version currentDbVersion) :

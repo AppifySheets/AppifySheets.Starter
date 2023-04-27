@@ -1,4 +1,4 @@
-namespace L5.XAF.Blazor.Server;
+namespace L6.XAF.Blazor.Server;
 
 public static class StaticSettings
 {
