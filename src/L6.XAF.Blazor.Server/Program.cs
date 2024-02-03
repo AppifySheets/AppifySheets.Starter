@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AppifySheets.Domain.Common;
 using AppifySheets.EfCore.ApplicationBase;
+using AppifySheets.EfCore.Infrastructure.ConnectionHelpers;
 using CSharpFunctionalExtensions;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Utils;
@@ -20,6 +21,7 @@ public class Program : BlazorProgramBase<Startup>
 {
     public static int Main(string[] args) => new Program().MainBase(args);
     protected override Maybe<Type> OneTypeFromProxyTypesAssembly => Maybe.None;
+    protected override ServerPort SeqAddress => DefaultSeqAddress;
 }
 
 // ReSharper disable once ClassNeverInstantiated.Global
@@ -62,4 +64,6 @@ public class Startup : StartupBaseInMemory<AppifySheetsBlazorApplication, Applic
     protected override void ConfigureServicesCore(IServiceCollection services)
     {
     }
+
+    protected override int HoursOffsetFromUtc => 4;
 }

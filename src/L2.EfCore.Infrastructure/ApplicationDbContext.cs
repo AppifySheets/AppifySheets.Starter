@@ -13,17 +13,11 @@ namespace L2.EfCore.Infrastructure;
 public static class ConnectionStringInitializer
 {
     public static PostgresConnectionStringBuilder GetConnectionString()
-        => PostgresConnectionStringBuilder.AppifySheets(
-            ServerPortChecker.GetFirstAvailable(From("144.24.160.225", 15432)).ThrowOnFailureOrSuccessfulResult(),
-            "ryI^^Tn7%rl39X2TbpI6l");
+        => PostgresConnectionStringBuilder.AppifySheets(From("144.24.160.225", 5432), "ryI^^Tn7%rl39X2TbpI6l", true);
 }
-public class ApplicationDbContext : AppifySheetsEfCoreDbContextBaseInMemory<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>
+public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime, ISecurityStrategyBase securityStrategyBase)
+    : AppifySheetsEfCoreDbContextBaseInMemory<ApplicationDbContext, ApplicationUser, BasicUser, ApplicationRole, ApplicationUserLoginInfo>(options, dispatcher, dateTime, securityStrategyBase)
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDomainEventDispatcher dispatcher, IDateTime dateTime, ISecurityStrategyBase securityStrategyBase)
-        : base(options, dispatcher, dateTime, securityStrategyBase)
-    {
-    }
-
     protected override Unit OnConfiguringCore(DbContextOptionsBuilder optionsBuilder) => Unit.Value;
 
     protected override Task SaveChangesCoreAsync() => Task.CompletedTask;
