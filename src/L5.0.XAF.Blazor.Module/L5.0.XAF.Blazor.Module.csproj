@@ -5,6 +5,7 @@
         <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
         <Deterministic>false</Deterministic>
         <Nullable>enable</Nullable>
+        <RootNamespace>L5.XAF.Blazor.Module</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\L4.XAF.Common.Module\L4.XAF.Common.Module.csproj" />
+        <ProjectReference Include="..\L4.0.XAF.Common.Module\L4.0.XAF.Common.Module.csproj" />
     </ItemGroup>
 
 </Project>

@@ -5,6 +5,7 @@
         <UserSecretsId>5fd510f5-8fe9-4bc2-8d93-873d25a54667</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <ServerGarbageCollection>false</ServerGarbageCollection>
+        <RootNamespace>L6.XAF.Blazor.Server</RootNamespace>
     </PropertyGroup>
 
 <!--    <ItemGroup>-->
@@ -20,6 +21,6 @@
         <PackageReference Include="AppifySheets.Blazor.XAF.EfCore.ApplicationBase.Postgres" Version="*" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\L5.XAF.Blazor.Module\L5.XAF.Blazor.Module.csproj" />
+        <ProjectReference Include="..\L5.0.XAF.Blazor.Module\L5.0.XAF.Blazor.Module.csproj" />
     </ItemGroup>
 </Project>

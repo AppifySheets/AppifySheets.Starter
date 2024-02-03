@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>L2.EfCore.Infrastructure.Migrations</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -11,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\L2.EfCore.Infrastructure\L2.EfCore.Infrastructure.csproj" />
+        <ProjectReference Include="..\L2.0.EfCore.Infrastructure\L2.0.EfCore.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

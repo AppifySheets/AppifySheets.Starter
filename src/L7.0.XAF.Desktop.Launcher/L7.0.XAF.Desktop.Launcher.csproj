@@ -6,6 +6,7 @@
         <TargetFramework>net8.0-windows</TargetFramework>
         <UseWindowsForms>true</UseWindowsForms>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <RootNamespace>L7.XAF.Desktop.Launcher</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\L4.XAF.Common.Module\L4.XAF.Common.Module.csproj" />
+        <ProjectReference Include="..\L4.0.XAF.Common.Module\L4.0.XAF.Common.Module.csproj" />
     </ItemGroup>
    
 </Project>

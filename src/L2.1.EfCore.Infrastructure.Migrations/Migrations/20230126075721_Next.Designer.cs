@@ -471,7 +471,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("ReportDatasV2");
                 });
 
-            modelBuilder.Entity("L1.Domain.BaseModels.BasicUser", b =>
+            modelBuilder.Entity("L1.0.Domain.BaseModels.BasicUser", b =>
                 {
                     b.Property<int>("Id")
                         .HasColumnType("integer");
@@ -493,7 +493,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("ApplicationUsers", (string)null);
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.City", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.City", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -541,7 +541,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("City");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Condition", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -595,7 +595,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("Condition");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Country", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Country", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -636,7 +636,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("Country");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.ICD10", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -677,7 +677,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("ICD10");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Medication", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -723,7 +723,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("Medication");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Patient", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Patient", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -787,7 +787,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("Patient");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.State", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.State", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -828,7 +828,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.ToTable("State");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -864,7 +864,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.HasDiscriminator().HasValue("AsPermissionPolicyRole");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationUser", b =>
                 {
                     b.HasBaseType("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyUser");
 
@@ -904,7 +904,7 @@ namespace L3.EfCore.Migrations.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationRole", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationRole", b =>
                 {
                     b.HasBaseType("AppifySheets.Common.EfCore.UsersRelated.AsPermissionPolicyRole");
 
@@ -1010,30 +1010,30 @@ namespace L3.EfCore.Migrations.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("L1.Domain.BaseModels.BasicUser", b =>
+            modelBuilder.Entity("L1.0.Domain.BaseModels.BasicUser", b =>
                 {
-                    b.HasOne("L2.EfCore.Infrastructure.ApplicationUser", null)
+                    b.HasOne("L2.0.EfCore.Infrastructure.ApplicationUser", null)
                         .WithOne("BasicApplicationUser")
-                        .HasForeignKey("L1.Domain.BaseModels.BasicUser", "Id")
+                        .HasForeignKey("L1.0.Domain.BaseModels.BasicUser", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.City", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.City", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
-                    b.HasOne("L1.Domain.Models.State", "State")
+                    b.HasOne("L1.0.Domain.Models.State", "State")
                         .WithMany()
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1048,25 +1048,25 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("State");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Condition", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.Models.ICD10", "Diagnosis")
+                    b.HasOne("L1.0.Domain.Models.ICD10", "Diagnosis")
                         .WithMany()
                         .HasForeignKey("DiagnosisId");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
-                    b.HasOne("L1.Domain.Models.Patient", null)
+                    b.HasOne("L1.0.Domain.Models.Patient", null)
                         .WithMany("Conditions")
                         .HasForeignKey("PatientId");
 
@@ -1079,17 +1079,17 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Country", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Country", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1100,17 +1100,17 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.ICD10", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.ICD10", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1121,21 +1121,21 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Medication", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Medication", b =>
                 {
-                    b.HasOne("L1.Domain.Models.Condition", null)
+                    b.HasOne("L1.0.Domain.Models.Condition", null)
                         .WithMany("Medications")
                         .HasForeignKey("ConditionId");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1146,23 +1146,23 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Patient", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Patient", b =>
                 {
-                    b.HasOne("L1.Domain.Models.Country", "Citizenship")
+                    b.HasOne("L1.0.Domain.Models.Country", "Citizenship")
                         .WithMany()
                         .HasForeignKey("CitizenshipId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1175,17 +1175,17 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.State", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.State", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1196,9 +1196,9 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("LastModifiedBy");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationUserLoginInfo", b =>
                 {
-                    b.HasOne("L2.EfCore.Infrastructure.ApplicationUser", "User")
+                    b.HasOne("L2.0.EfCore.Infrastructure.ApplicationUser", "User")
                         .WithMany("UserLogins")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1207,17 +1207,17 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationUser", b =>
                 {
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "CreatedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "CreatedBy")
                         .WithMany()
                         .HasForeignKey("CreatedById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "ExpiredBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "ExpiredBy")
                         .WithMany()
                         .HasForeignKey("ExpiredById");
 
-                    b.HasOne("L1.Domain.BaseModels.BasicUser", "LastModifiedBy")
+                    b.HasOne("L1.0.Domain.BaseModels.BasicUser", "LastModifiedBy")
                         .WithMany()
                         .HasForeignKey("LastModifiedById");
 
@@ -1260,17 +1260,17 @@ namespace L3.EfCore.Migrations.Migrations
                     b.Navigation("ObjectPermissions");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Condition", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Condition", b =>
                 {
                     b.Navigation("Medications");
                 });
 
-            modelBuilder.Entity("L1.Domain.Models.Patient", b =>
+            modelBuilder.Entity("L1.0.Domain.Models.Patient", b =>
                 {
                     b.Navigation("Conditions");
                 });
 
-            modelBuilder.Entity("L2.EfCore.Infrastructure.ApplicationUser", b =>
+            modelBuilder.Entity("L2.0.EfCore.Infrastructure.ApplicationUser", b =>
                 {
                     b.Navigation("BasicApplicationUser")
                         .IsRequired();
